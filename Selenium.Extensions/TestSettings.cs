@@ -33,6 +33,15 @@ namespace Selenium.Extensions
         /// The type of the driver.
         /// </value>
         public WebDriverType DriverType { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to use native driver to find elements.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if use native driver; otherwise, use the driver wrapper.
+        /// </value>
+        public bool UseNativeDriver { get; set; }
+        
         /// <summary>
         /// Gets or sets the timeout time span.
         /// </summary>

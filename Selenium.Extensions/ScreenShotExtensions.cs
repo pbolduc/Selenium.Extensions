@@ -23,7 +23,9 @@ namespace Selenium.Extensions
             try
             {
                 var totalwidth1 = (long) (driver.ExecuteScript("return document.body.offsetWidth"));
-                var totalHeight1 = (long) (driver.ExecuteScript("return  document.body.parentNode.scrollHeight"));
+                //var totalHeight1 = (long) (driver.ExecuteScript("return  document.body.parentNode.scrollHeight"));
+                // webkit can make the page smaller, so use the body scrollHeight for now
+                var totalHeight1 = (long) (driver.ExecuteScript("return  document.body.scrollHeight"));
                 var totalWidth = (int) totalwidth1;
                 var totalHeight = (int) totalHeight1;
                 // Get the Size of the Viewport

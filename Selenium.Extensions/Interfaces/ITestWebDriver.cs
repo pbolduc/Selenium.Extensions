@@ -8,6 +8,7 @@ namespace Selenium.Extensions.Interfaces
 {
     public interface ITestWebDriver
     {
+        IWebDriver WebDriver { get; }
         ICapabilities Capabilities { get; }
         string CurrentWindowHandle { get; }
         IFileDetector FileDetector { get; set; }

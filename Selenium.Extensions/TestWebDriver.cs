@@ -37,6 +37,8 @@ namespace Selenium.Extensions
             _testOutputHelper = testOutputHelper;
         }
 
+        public IWebDriver WebDriver => _driver;
+
         public TestSettings Settings { get; }
 
         public IFileDetector FileDetector
@@ -109,6 +111,11 @@ namespace Selenium.Extensions
 
         public IWebElement FindElement(By @by)
         {
+            if (Settings.UseNativeDriver)
+            {
+                return _driver.FindElement(@by);
+            }
+
             var foundElement = _context.FindElement(@by);
             if (CurrentElement != null)
             {
@@ -121,6 +128,11 @@ namespace Selenium.Extensions
 
         public ReadOnlyCollection<IWebElement> FindElements(By @by)
         {
+            if (Settings.UseNativeDriver)
+            {
+                return _driver.FindElements(@by);
+            }
+
             return _context.FindElements(@by);
         }
 
